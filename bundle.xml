@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<adapt_framework>
+  <bundle>
+    <label>Adapt Form Select2 controls</label>
+    <name>form_select2</name>
+    <type>extension</type>
+    <version>1.0.0</version>
+    <namespace>\adapt\forms\select2</namespace>
+    <description />
+    <license>MIT</license>
+    <copyright>2015 Adapt Framework</copyright>
+    <depends_on>
+      <bundle>
+        <name>select2</name>
+        <version>4.0</version>
+      </bundle>
+      <bundle>
+        <name>jquery</name>
+      </bundle>
+      <bundle>
+        <name>forms</name>
+        <version>1.0</version>
+      </bundle>
+      <bundle>
+        <name>adapt</name>
+        <version>2.0</version>
+      </bundle>
+    </depends_on>
+    <schema>
+      <add>
+        <table name="form_field_type">
+          <record>
+            <name>select2</name>
+            <view>\adapt\forms\select2\view_field_select2</view>
+          </record>
+          <record>
+            <name>Multple select boxes</name>
+            <view>\adapt\forms\select2\view_field_multple_select_boxes</view>
+          </record>
+          <record>
+            <name>Tagging support</name>
+            <view>\adapt\forms\select2\view_field_tagging_support</view>
+          </record>
+          <record>
+            <name>Automatic tokenization</name>
+            <view>\adapt\forms\select2\view_field_automatic_tokenization</view>
+          </record>
+          <record>
+            <name>Multiple select boxes</name>
+            <view>\adapt\forms\select2\view_field_multiple_select_boxes</view>
+          </record>
+        </table>
+      </add>
+    </schema>
+  </bundle>
+</adapt_framework>
