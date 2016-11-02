@@ -2,7 +2,7 @@
 
     $(document).ready(
             function () {
-
+                console.log('Pre woop woop');
                 /*
                  * We need to attach events and config to the datetime pickers, the problem
                  * being is that they may not be on the page when the page loads, so...
@@ -11,63 +11,53 @@
                  * and attach the events if we haven't already done so.
                  */
 
+                var elem = document.getElementsByTagName("body")[0];
+                elem.addEventListener('build', function () {
+                    console.log("woop woop");
 
-                $('body').on(
-                        'focus',
-                        '.view.field-select2 select,' +
-                        '.view.field-single-select-boxes select,' +
-                        '.view.field-multiple-select-boxes select,' +
-                        '.view.field-placeholders select,' +
-                        '.view.field-array-data select,' +
-                        '.view.field-tagging-support select,' +
-                        '.view.field-automatic-tokenization select',
-                        function (e) {
-                            var $input = $(this);
-                            if ($input.attr('data-configured') != 'yes') {
-                                var $field = $input.parents('.view.field');
-                                var formatter = $input.attr('data-formatter');
+                    $(".field-multiple-select-boxes").find("select").select2();
 
-                                $input.attr('data-configured', 'yes');
+                    $('.field-single-select-boxes').find("select").select2();
 
-                                if ($field.hasClass('field-select2')) {
-                                    $input.select2();
-                                } else if ($field.hasClass('field-single-select-boxes')) {
-                                    $input.select2();
-                                } else if ($field.hasClass('field-multiple-select-boxes')) {
-                                    // select tag needs to have multiple attribute;
-                                    $input.select2();
-                                } else if ($field.hasClass('field-placeholders')) {
-                                    // select tag needs to have multiple attribute;
-                                    $input.select2({
-                                        placeholder: "Select a state",
-                                        allowClear: true
-                                    });
-                                } else if ($field.hasClass('field-array-data')) {
-                                    // example data var data = [{ id: 0, text: 'enhancement' }, { id: 1, text: 'bug' }, { id: 2, text: 'duplicate' }, { id: 3, text: 'invalid' }, { id: 4, text: 'wontfix' }];
-                                    $input.select2({
-                                        data: data
+                    $('.field-tagging-support').find("select").select2({
+                            tags: true
+                        });
 
-                                    });
-                                } else if ($field.hasClass('field-placeholders')) {
-                                    // select tag needs to have multiple attribute;
-                                    $input.select2({
-                                        placeholder: "Select a state",
-                                        allowClear: true
-                                    });
-                                } else if ($field.hasClass('field-tagging-support')) {
-                                    console.log('doingsomething');
-                                    $input.select2({
-                                        tags: true
-                                    });
-                                } else {
-                                    $input.datetimepicker({
-                                        format: convert_date_format_to_moment_format(formatter),
-                                        locale: 'en-gb'
-                                    });
-                                }
-                            }
-                        }
-                );
+//                    if ($field.hasClass('field-select2')) {
+//
+//                    } else if ($field.hasClass('field-single-select-boxes')) {
+//                        $input.select2();
+////                    } else if ($('body').find('.field-single-select-boxes')) {
+////                        // select tag needs to have multiple attribute;
+//////                                    $input.attr("multiple","multiple");
+////                        console.log("multiple select box");
+////                       
+//                    } else if ($field.hasClass('field-placeholders')) {
+//                        // select tag needs to have multiple attribute;
+//                        $input.select2({
+//                            placeholder: "Select a state",
+//                            allowClear: true
+//                        });
+//                    } else if ($field.hasClass('field-array-data')) {
+//                        // example data var data = [{ id: 0, text: 'enhancement' }, { id: 1, text: 'bug' }, { id: 2, text: 'duplicate' }, { id: 3, text: 'invalid' }, { id: 4, text: 'wontfix' }];
+//                        $input.select2({
+//                            data: data
+//
+//                        });
+//                    } else if ($field.hasClass('field-placeholders')) {
+//                        // select tag needs to have multiple attribute;
+//                        $input.select2({
+//                            placeholder: "Select a state",
+//                            allowClear: true
+//                        });
+//                    } else if ($field.hasClass('field-tagging-support')) {
+//
+//                        $input.select2({
+//                            tags: true
+//                        });
+//                    }
+
+                }, false);
 
 
                 function configure_datetime_picker(picker) {

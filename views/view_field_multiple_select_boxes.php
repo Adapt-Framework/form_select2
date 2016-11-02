@@ -9,10 +9,17 @@ namespace adapt\forms\select2{
         
         public function __construct($form_data, $data_type, $user_data){
             parent::__construct($form_data, $data_type, $user_data);
+            $this->find('select')->attr('multiple', 'multiple');
+            
+            $values = $user_data[$form_data['name']];
+            
+            foreach($values as $value){
+                $this->find('option[value="' . $value . '"]')->attr('selected', 'selected');
+            }
+            
         }
         
     }
 
 }
-
 ?>
