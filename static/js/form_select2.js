@@ -2,7 +2,6 @@
 
     $(document).ready(
             function () {
-                console.log('Pre woop woop');
                 /*
                  * We need to attach events and config to the datetime pickers, the problem
                  * being is that they may not be on the page when the page loads, so...
@@ -13,7 +12,6 @@
 
                 var elem = document.getElementsByTagName("body")[0];
                 elem.addEventListener('build', function () {
-                    console.log("woop woop");
 
                     $(".field-multiple-select-boxes").find("select").select2();
 
@@ -30,8 +28,7 @@
 ////                    } else if ($('body').find('.field-single-select-boxes')) {
 ////                        // select tag needs to have multiple attribute;
 //////                                    $input.attr("multiple","multiple");
-////                        console.log("multiple select box");
-////                       
+////
 //                    } else if ($field.hasClass('field-placeholders')) {
 //                        // select tag needs to have multiple attribute;
 //                        $input.select2({
@@ -67,8 +64,7 @@
 
 
                 //window.testFoo = testFoo;
-                function testFoo() {
-                    console.log('we have been called');
+                function testFoo() {                    
 
                     /*
                      * What format should our dates and times be?
