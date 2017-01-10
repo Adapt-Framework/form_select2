@@ -6,6 +6,8 @@
     <type>extension</type>
     <version>1.0.0</version>
     <namespace>\adapt\forms\select2</namespace>
+    <version_status>release</version_status>
+    <availability>public</availability>
     <description />
     <license>MIT</license>
     <copyright>2015 Adapt Framework</copyright>
