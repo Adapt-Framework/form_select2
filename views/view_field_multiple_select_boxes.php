@@ -16,7 +16,8 @@ namespace adapt\forms\select2{
             foreach($values as $value){
                 $this->find('option[value="' . $value . '"]')->attr('selected', 'selected');
             }
-            
+
+            $this->find('option')->first()->detach();
         }
         
     }
