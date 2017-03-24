@@ -13,7 +13,7 @@ namespace adapt\forms\select2{
 
             $values = $user_data[$form_data['name']];
 
-            if(!is_array($values) && $this->is_json($values)){
+            if(!is_array($values) && is_json($values)){
                 $values = json_decode($values);
             }
             
