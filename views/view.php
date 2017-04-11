@@ -13,11 +13,22 @@ namespace adapt\forms\select2{
             
             /* Create the control */
             $allowed_values = $form_data['allowed_values'];
+//            print_r($allowed_values);
             if (is_assoc($allowed_values)){
                 $new_values = [];
-                foreach($allowed_values as $key => $val) $new_values[$key] = $val;
+                foreach($allowed_values as $key => $val) {
+                   if (is_assoc($val)){
+                        $new_values[$key] = [];
+                        foreach($val as $label => $item_val){
+                            $new_values[$key][$label] = $item_val;
+                        }
+                    }else{
+                        $new_values[$key] = $val;
+                    }
+                }
                 $allowed_values = $new_values;
             }
+//            print_r($allowed_values);die();
             $key = $form_data['name'];
             $value = $user_data[$key];
             
