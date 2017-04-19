@@ -59,6 +59,11 @@ namespace adapt\forms\select2{
             if (isset($form_data['placeholder_label']) && trim($form_data['placeholder_label']) != ''){
                 $control->attr('placeholder', $this->get_string($form_data['placeholder_label']));
             }
+
+            /* Max length */
+            if (isset($form_data['max_length']) && trim($form_data['max_length']) != ''){
+                $control->attr('data-max-length', $this->get_string($form_data['max_length']));
+            }
             
             
             /* Is the field mandatory? */
