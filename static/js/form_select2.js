@@ -13,7 +13,20 @@
                 var elem = document.getElementsByTagName("body")[0];
                 elem.addEventListener('build', function () {
 
-                    $(".field-multiple-select-boxes").find("select").select2();
+                    /**
+                     * Check for max length on multiple select boxes
+                     * Max length refers to max tags
+                     */
+                    $(".field-multiple-select-boxes").find("select").each(function() {
+                        if($(this).attr('data-max-length') !== undefined) {
+                            $(this).select2({
+                                maximumSelectionLength: $(this).attr('data-max-length')
+                            });
+                        } else {
+                            $(this).select2();
+                        }
+                    });
+
 
                     $('.field-single-select-boxes').find("select").select2();
 
@@ -21,63 +34,15 @@
                             tags: true
                         });
 
-//                    if ($field.hasClass('field-select2')) {
-//
-//                    } else if ($field.hasClass('field-single-select-boxes')) {
-//                        $input.select2();
-////                    } else if ($('body').find('.field-single-select-boxes')) {
-////                        // select tag needs to have multiple attribute;
-//////                                    $input.attr("multiple","multiple");
-////
-//                    } else if ($field.hasClass('field-placeholders')) {
-//                        // select tag needs to have multiple attribute;
-//                        $input.select2({
-//                            placeholder: "Select a state",
-//                            allowClear: true
-//                        });
-//                    } else if ($field.hasClass('field-array-data')) {
-//                        // example data var data = [{ id: 0, text: 'enhancement' }, { id: 1, text: 'bug' }, { id: 2, text: 'duplicate' }, { id: 3, text: 'invalid' }, { id: 4, text: 'wontfix' }];
-//                        $input.select2({
-//                            data: data
-//
-//                        });
-//                    } else if ($field.hasClass('field-placeholders')) {
-//                        // select tag needs to have multiple attribute;
-//                        $input.select2({
-//                            placeholder: "Select a state",
-//                            allowClear: true
-//                        });
-//                    } else if ($field.hasClass('field-tagging-support')) {
-//
-//                        $input.select2({
-//                            tags: true
-//                        });
-//                    }
-
                 }, false);
 
-
-                function configure_datetime_picker(picker) {
-
-                }
-
-
-
-                //window.testFoo = testFoo;
-                function testFoo() {                    
-
-                    /*
-                     * What format should our dates and times be?
-                     */
-
+                function testFoo() {
 
                     /*
                      * Add the pickers
                      */
                     $('.view.field-datetime-picker select').each(
                             function () {
-
-
                                 $this.datetimepicker({
                                     format: pattern
                                 });

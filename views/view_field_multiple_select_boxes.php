@@ -12,7 +12,6 @@ namespace adapt\forms\select2{
             $this->find('select')->attr('multiple', 'multiple');
 
             $values = $user_data[$form_data['name']];
-
             if(!is_array($values) && is_json($values)){
                 $values = json_decode($values);
             }
