@@ -15,19 +15,19 @@ namespace adapt\forms\select2{
             if(!is_array($values) && is_json($values)){
                 $values = json_decode($values);
             }
-            
-            foreach($values as $value){
-                $options = $this->find('option')->elements;
-                foreach($options as $option){
-                    foreach($option->_children as $children){
-                        if($children == $value){
-                            $option->attr('selected', 'selected');
-                        }    
+            if(is_array($values)){
+                foreach($values as $value){
+                    $options = $this->find('option')->elements;
+                    foreach($options as $option){
+                        foreach($option->_children as $children){
+                            if($children == $value){
+                                $option->attr('selected', 'selected');
+                            }    
+                        }
                     }
+                    $this->find('option[value="' . $value . '"]')->attr('selected', 'selected');
                 }
-                $this->find('option[value="' . $value . '"]')->attr('selected', 'selected');
             }
-
         }
         
     }
