@@ -29,14 +29,14 @@ namespace adapt\forms\select2{
                 $allowed_values = $new_values;
             }
 //            print_r($allowed_values);die();
-            $key = $form_data['name'];
+            $key = $form_data['field_name'];
             $value = $user_data[$key];
             
             if (!$value){
                 $value = $form_data['default_value'];
             }
             
-            $control = new \bootstrap\views\view_select($form_data['name'], $allowed_values, $value);
+            $control = new \bootstrap\views\view_select($form_data['field_name'], $allowed_values, $value);
             $control->attr('data-default-value', $value);
             
             //$control = new html_input(array('type' => 'text', 'name' => $form_data['name'], 'value' => $form_data['value'] ? $form_data['value'] : $form_data['default_value'], 'class' => 'form-control'));

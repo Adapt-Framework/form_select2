@@ -11,7 +11,7 @@ namespace adapt\forms\select2{
             parent::__construct($form_data, $data_type, $user_data);
             $this->find('select')->attr('multiple', 'multiple');
 
-            $values = $user_data[$form_data['name']];
+            $values = $user_data[$form_data['field_name']];
             if(!is_array($values) && is_json($values)){
                 $values = json_decode($values);
             }
@@ -33,4 +33,3 @@ namespace adapt\forms\select2{
     }
 
 }
-?>
