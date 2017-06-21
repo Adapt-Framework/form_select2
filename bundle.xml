@@ -4,7 +4,7 @@
     <label>Adapt Form Select2 controls</label>
     <name>form_select2</name>
     <type>extension</type>
-    <version>1.0.0</version>
+    <version>0.8.0</version>
     <namespace>\adapt\forms\select2</namespace>
     <version_status>release</version_status>
     <availability>public</availability>
@@ -14,7 +14,7 @@
     <depends_on>
       <bundle>
         <name>select2</name>
-        <version>4.0</version>
+        <version>1.0</version>
       </bundle>
       <bundle>
         <name>jquery</name>
