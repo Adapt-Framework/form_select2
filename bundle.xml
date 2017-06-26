@@ -10,11 +10,11 @@
         <availability>public</availability>
         <description />
         <copyright>2017 Matt Bruton</copyright>
-            <license>MIT</license>
-            <vendor>
-                <name>Adapt Framework</name>
-                <website>https://www.adaptframework.com</website>
-            </vendor>
+        <license>MIT</license>
+        <vendor>
+            <name>Adapt Framework</name>
+            <website>https://www.adaptframework.com</website>
+        </vendor>
         <depends_on>
             <bundle>
                 <name>select2</name>
