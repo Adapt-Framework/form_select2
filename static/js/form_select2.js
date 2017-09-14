@@ -1,7 +1,31 @@
 (function ($) {
 
     $(document).ready(
+
+
+
+
             function () {
+
+                $(document).on(
+                    'select2:open',
+                    '.view.field.form-select2 select.form-control',
+                    function(e){
+                        $(this).parent('.view.field').removeClass('has-error').removeClass('has-feedback');
+                    }
+                );
+
+                $(document).on(
+                    'change focus blur',
+                    '.view.field.form-select2 select.form-control',
+                    function(e){
+                        if ($(this).find(":selected").length){
+                            $(this).parent().find('input.form-control[type="hidden"]').val('1');
+                        }else{
+                            $(this).parent().find('input.form-control[type="hidden"]').val('');
+                        }
+                    }
+                );
                 /*
                  * We need to attach events and config to the datetime pickers, the problem
                  * being is that they may not be on the page when the page loads, so...
@@ -9,7 +33,6 @@
                  * and check for focus events occuring and trigger the configuration
                  * and attach the events if we haven't already done so.
                  */
-
                 var elem = document.getElementsByTagName("body")[0];
                 elem.addEventListener('build', function () {
 

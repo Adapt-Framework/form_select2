@@ -38,15 +38,18 @@ namespace adapt\forms\select2{
             
             $control = new \bootstrap\views\view_select($form_data['field_name'], $allowed_values, $value);
             $control->attr('data-default-value', $value);
-            
-            //$control = new html_input(array('type' => 'text', 'name' => $form_data['name'], 'value' => $form_data['value'] ? $form_data['value'] : $form_data['default_value'], 'class' => 'form-control'));
             $control->set_id();
             
             /* Add the label */
             if (isset($form_data['label']) && trim($form_data['label']) != ''){
                 $this->add(new html_label($this->get_string($form_data['label']), array('class' => 'control-label', 'for' => $control->attr('id'))));
             }
-            
+
+            $hidden_control = new html_input(['type' => 'hidden', 'data-for' => $control->attr('id'), 'class' => 'form-control']);
+            $this->add(
+                $hidden_control
+            );
+
             /* Add the control */
             $this->add($control);
             
@@ -80,10 +83,10 @@ namespace adapt\forms\select2{
                 
                 /* Is it a mandatory group? */
                 if (isset($form_data['mandatory_group']) && trim($form_data['mandatory_group']) != ""){
-                    $control->attr('data-mandatory', 'group');
-                    $control->attr('data-mandatory-group', $form_data['mandatory_group']);
+                    $hidden_control->attr('data-mandatory', 'group');
+                    $hidden_control->attr('data-mandatory-group', $form_data['mandatory_group']);
                 }else{
-                    $control->attr('data-mandatory', 'Yes');
+                    $hidden_control->attr('data-mandatory', 'Yes');
                 }
             }
         }
