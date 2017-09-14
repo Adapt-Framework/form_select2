@@ -15,6 +15,7 @@ namespace adapt\forms\select2{
             if (parent::boot()){
                 
                 $this->dom->head->add(new html_script(array('type' => 'text/javascript', 'src' => "/adapt/form_select2/form_select2-{$this->version}/static/js/form_select2.js")));
+                $this->dom->head->add(new html_link(array('type' => 'text/css', 'rel' => 'stylesheet', 'href' => "/adapt/form_select2/form_select2-{$this->version}/static/css/form_select2.css")));
                 return true;
             }
             

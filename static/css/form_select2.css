@@ -1,0 +1,3 @@
+.view.field.has-error span.select2-selection[role="combobox"]{
+    border-color: #f05050;
+}
