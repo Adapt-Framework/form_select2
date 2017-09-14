@@ -4,7 +4,7 @@
         <label>Adapt Form Select2 controls</label>
         <name>form_select2</name>
         <type>extension</type>
-        <version>0.8.0</version>
+        <version>0.8.1</version>
         <namespace>\adapt\forms\select2</namespace>
         <version_status>release</version_status>
         <availability>public</availability>
